@@ -1,10 +1,17 @@
 import { http, HttpResponse } from 'msw'
 import { setupServer } from 'msw/node'
+import { client as nestedClient } from '../tests/client-nested/client.gen'
+import * as nestedSdk from '../tests/client-nested/sdk.gen'
 import { client } from '../tests/client/client.gen'
+
 import * as sdk from '../tests/client/sdk.gen'
 import { experimental_toORPCClient } from './to-orpc-client'
 
 client.setConfig({
+  baseUrl: 'https://example.com',
+})
+
+nestedClient.setConfig({
   baseUrl: 'https://example.com',
 })
 
@@ -26,6 +33,30 @@ const server = setupServer(
     return HttpResponse.json({ id: body.name, name: body.name })
   }),
   http.get('https://example.com/planets/:planetId', (req) => {
+    return HttpResponse.json({ id: req.params.planetId, name: req.params.planetId })
+  }),
+
+  // Nested v1 endpoints
+  http.get('https://example.com/v1/planets', () => {
+    return HttpResponse.json([{ id: 'earth', name: 'Earth' }])
+  }),
+  http.post('https://example.com/v1/planets', async (req) => {
+    const body = await req.request.json() as any
+    return HttpResponse.json({ id: body.name, name: body.name })
+  }),
+  http.get('https://example.com/v1/planets/:planetId', (req) => {
+    return HttpResponse.json({ id: req.params.planetId, name: req.params.planetId })
+  }),
+
+  // Nested v2 endpoints
+  http.get('https://example.com/v2/planets', () => {
+    return HttpResponse.json([{ id: 'mars', name: 'Mars' }])
+  }),
+  http.post('https://example.com/v2/planets', async (req) => {
+    const body = await req.request.json() as any
+    return HttpResponse.json({ id: body.name, name: body.name })
+  }),
+  http.get('https://example.com/v2/planets/:planetId', (req) => {
     return HttpResponse.json({ id: req.params.planetId, name: req.params.planetId })
   }),
 )
@@ -155,5 +186,70 @@ describe('toORPCClient', () => {
 
   it('throws on error', async () => {
     await expect(client.planetList({ query: { throwOnError: 1 } as any })).rejects.toThrowError()
+  })
+})
+
+describe('toORPCClient - nested', () => {
+  const nestedOrpc = experimental_toORPCClient({
+    planet: {
+      v1: {
+        list: nestedSdk.planetV1List,
+        create: nestedSdk.planetV1Create,
+        get: nestedSdk.planetV1Get,
+      },
+      v2: {
+        list: nestedSdk.planetV2List,
+        create: nestedSdk.planetV2Create,
+        get: nestedSdk.planetV2Get,
+      },
+    },
+  })
+
+  it('works with v1.list', async () => {
+    const result = await nestedOrpc.planet.v1.list()
+    expect(result.body).toEqual([{ id: 'earth', name: 'Earth' }])
+    expect(result.request.url).toBe('https://example.com/v1/planets')
+  })
+
+  it('works with v2.list', async () => {
+    const result = await nestedOrpc.planet.v2.list()
+    expect(result.body).toEqual([{ id: 'mars', name: 'Mars' }])
+    expect(result.request.url).toBe('https://example.com/v2/planets')
+  })
+
+  it('works with v1.create', async () => {
+    const result = await nestedOrpc.planet.v1.create({
+      body: { name: 'Mars' },
+    })
+    expect(result.body).toEqual({ id: 'Mars', name: 'Mars' })
+    expect(result.request.url).toBe('https://example.com/v1/planets')
+  })
+
+  it('works with v1.get', async () => {
+    const result = await nestedOrpc.planet.v1.get({
+      path: { planetId: 'earth' },
+    })
+    expect(result.body).toEqual({ id: 'earth', name: 'earth' })
+    expect(result.request.url).toBe('https://example.com/v1/planets/earth')
+  })
+
+  it('works with v2.get', async () => {
+    const result = await nestedOrpc.planet.v2.get({
+      path: { planetId: 'mars' },
+    })
+    expect(result.body).toEqual({ id: 'mars', name: 'mars' })
+    expect(result.request.url).toBe('https://example.com/v2/planets/mars')
+  })
+
+  it('auto-nests flat SDK', async () => {
+    const orpc = experimental_toORPCClient(nestedSdk) as any
+
+    expect(orpc.planet).toBeDefined()
+    expect(orpc.planet.v1).toBeDefined()
+    expect(orpc.planet.v2).toBeDefined()
+
+    const result = await orpc.planet.v1.list()
+    expect(result.body).toEqual([{ id: 'earth', name: 'Earth' }])
+    expect(result.request.url).toBe('https://example.com/v1/planets')
   })
 })
