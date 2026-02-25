@@ -27,3 +27,4 @@ vitest.config.ts.timestamp-*
 
 ## Hey API Code gen
 /tests/client/
+/tests/client-nested/
