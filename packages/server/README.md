@@ -178,6 +178,7 @@ If you find oRPC valuable and would like to support its development, you can do 
   <tr>
    <td align="center"><a href="https://github.com/yukimotochern?ref=orpc" target="_blank" rel="noopener" title="Chen, Zhi-Yuan"><img src="https://avatars.githubusercontent.com/u/20896173?u=945c33fc21725e4d566a0d02afc54b136ca1d67a&amp;v=4" width="119" alt="Chen, Zhi-Yuan"/><br />Chen, Zhi-Yuan</a></td>
    <td align="center"><a href="https://github.com/Ryanjso?ref=orpc" target="_blank" rel="noopener" title="Ryan Soderberg"><img src="https://avatars.githubusercontent.com/u/39172778?u=5ed913c31d57e7221b75784abcad48c7ebddde27&amp;v=4" width="119" alt="Ryan Soderberg"/><br />Ryan Soderberg</a></td>
+   <td align="center"><a href="https://github.com/itigoore01?ref=orpc" target="_blank" rel="noopener" title="shota"><img src="https://avatars.githubusercontent.com/u/11831107?u=c976a6dc7e055eb026304c46c99100ed22b0c8e0&amp;v=4" width="119" alt="shota"/><br />shota</a></td>
   </tr>
 </table>
 
