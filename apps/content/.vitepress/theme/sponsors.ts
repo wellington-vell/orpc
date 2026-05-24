@@ -460,7 +460,7 @@ export const sponsors: JSONSponsor[] = [
     sidebarLogo: 'https://avatars.githubusercontent.com/u/4278113?u=22b80b5399eed68ac76cd58b02961b0481f1db11&v=4',
   },
   {
-    name: 'wang chenyu',
+    name: null,
     login: 'hanayashiki',
     avatar: 'https://avatars.githubusercontent.com/u/26056783?u=06c3b9205a16fd41a871e82da1cc2a09306d53f5&v=4',
     amount: 5,
