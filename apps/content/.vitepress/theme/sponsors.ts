@@ -559,10 +559,10 @@ export const sponsors: JSONSponsor[] = [
   },
   {
     name: 'Ryuz',
-    login: 'yzuyr',
+    login: 'ryuzdev',
     avatar: 'https://avatars.githubusercontent.com/u/196539378?u=d38374588d219b6748b16406982f6559411466d4&v=4',
     amount: -1,
-    link: 'https://github.com/yzuyr?ref=orpc&utm_source=middleapi&utm_medium=sponsor',
+    link: 'https://github.com/ryuzdev?ref=orpc&utm_source=middleapi&utm_medium=sponsor',
     createdAt: '2025-06-15T15:08:09Z',
     tierTitle: 'Past Sponsor',
     tierLevel: 0,
