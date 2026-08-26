@@ -246,6 +246,18 @@ export const sponsors: JSONSponsor[] = [
     sidebarLogo: 'https://avatars.githubusercontent.com/u/38968280?u=c90084c6de65c56facabab7ba13a72a49ddbc3e4&v=4',
   },
   {
+    name: 'Orestis Ioannou',
+    login: 'guest-ac41de3b',
+    avatar: 'https://images.opencollective.com/guest-ac41de3b/avatar/460.png',
+    amount: 10,
+    link: 'https://opencollective.com/guest-ac41de3b?ref=orpc&utm_source=middleapi&utm_medium=sponsor',
+    createdAt: '2026-08-25T08:43:42.803Z',
+    tierTitle: 'Sponsor',
+    tierLevel: 2,
+    sidebarSize: 'none',
+    sidebarLogo: 'https://images.opencollective.com/guest-ac41de3b/avatar/460.png',
+  },
+  {
     name: 'David Walsh',
     login: 'rhinodavid',
     avatar: 'https://avatars.githubusercontent.com/u/5778036?u=b5521f07d2f88c3db2a0dae62b5f2f8357214af0&v=4',

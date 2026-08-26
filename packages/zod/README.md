@@ -184,6 +184,7 @@ If you find oRPC valuable and would like to support its development, you can do 
    <td align="center"><a href="https://github.com/itigoore01?ref=orpc&amp;utm_source=middleapi&amp;utm_medium=sponsor" target="_blank" rel="noopener" title="shota"><img src="https://avatars.githubusercontent.com/u/11831107?u=c976a6dc7e055eb026304c46c99100ed22b0c8e0&amp;v=4" width="139" alt="shota"/><br />shota</a></td>
    <td align="center"><a href="https://github.com/ellis-driscoll?ref=orpc&amp;utm_source=middleapi&amp;utm_medium=sponsor" target="_blank" rel="noopener" title="Ellis Driscoll"><img src="https://avatars.githubusercontent.com/u/70685966?u=c5f95bc33b5991d9744abe00052542e4a2ed3cb9&amp;v=4" width="139" alt="Ellis Driscoll"/><br />Ellis Driscoll</a></td>
    <td align="center"><a href="https://github.com/hoangbn?ref=orpc&amp;utm_source=middleapi&amp;utm_medium=sponsor" target="_blank" rel="noopener" title="Hoang Nguyen"><img src="https://avatars.githubusercontent.com/u/38968280?u=c90084c6de65c56facabab7ba13a72a49ddbc3e4&amp;v=4" width="139" alt="Hoang Nguyen"/><br />Hoang Nguyen</a></td>
+   <td align="center"><a href="https://opencollective.com/guest-ac41de3b?ref=orpc&amp;utm_source=middleapi&amp;utm_medium=sponsor" target="_blank" rel="noopener" title="Orestis Ioannou"><img src="https://images.opencollective.com/guest-ac41de3b/avatar/460.png" width="139" alt="Orestis Ioannou"/><br />Orestis Ioannou</a></td>
   </tr>
 </table>
 
