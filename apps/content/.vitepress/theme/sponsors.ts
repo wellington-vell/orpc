@@ -418,7 +418,7 @@ export const sponsors: JSONSponsor[] = [
     login: 'mr-kelly',
     avatar: 'https://avatars.githubusercontent.com/u/520852?u=6b0f7105f694e7b5cacf410a3f04c7044b469dc8&v=4',
     amount: 5,
-    link: 'https://bika.ai/?ref=orpc&utm_source=middleapi&utm_medium=sponsor',
+    link: 'https://kellychan.im/?ref=orpc&utm_source=middleapi&utm_medium=sponsor',
     createdAt: '2026-06-13T15:03:13Z',
     tierTitle: 'Backer',
     tierLevel: 1,
